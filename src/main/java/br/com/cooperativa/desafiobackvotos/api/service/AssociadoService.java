@@ -1,6 +1,5 @@
 package br.com.cooperativa.desafiobackvotos.api.service;
 
-import static br.com.cooperativa.desafiobackvotos.api.Utils.MaskUtils.*;
 import br.com.cooperativa.desafiobackvotos.api.domain.dtos.AssociadoInputDTO;
 import br.com.cooperativa.desafiobackvotos.api.domain.dtos.AssociadoOutputDTO;
 import br.com.cooperativa.desafiobackvotos.api.domain.entity.Associado;
@@ -11,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -33,14 +31,6 @@ public class AssociadoService {
     public List<AssociadoOutputDTO> findAll() {
         var associados = repository.findAll();
         return mapper.mapAsList(associados, AssociadoOutputDTO.class);
-    }
-
-    @Transactional
-    public void delete(String cpf) {
-        cpf = unmask(cpf);
-        repository.findByCpf(cpf)
-                .map(associado -> repository.deleteByCpf(associado.getCpf()))
-                .orElseThrow(() -> new NegocioException(messageHelper.getMessage("erro.excluir.associado")));
     }
 
     private Boolean existsAssociado(AssociadoInputDTO inputDTO) {
