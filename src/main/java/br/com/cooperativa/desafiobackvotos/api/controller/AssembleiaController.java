@@ -32,20 +32,20 @@ public class AssembleiaController {
     }
 
     @GetMapping(value = "/pauta/listar", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Retorna relação de pautas")
+    @Operation(summary = "Retorna relação das pautas")
     public ResponseEntity<List<PautaOutputDTO>> findAllPautas() {
         return ResponseEntity.ok(service.findAllPautas());
     }
 
     @PostMapping(value = "/sessao/abrir", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Realiza o cadastro da pauta")
+    @Operation(summary = "Abre a sessão de votação em uma pauta")
     public ResponseEntity<Void> save(@Valid @RequestBody SessaoInputDTO inputDTO) {
         service.save(inputDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping(value = "/sessao/listar", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Retorna relação de sessões")
+    @Operation(summary = "Retorna relação das sessões")
     public ResponseEntity<List<SessaoOutputDTO>> findAllSessoes() {
         return ResponseEntity.ok(service.findAllSessoes());
     }

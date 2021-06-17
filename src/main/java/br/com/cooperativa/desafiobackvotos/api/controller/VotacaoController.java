@@ -22,14 +22,14 @@ public class VotacaoController {
     private final VotoService service;
 
     @PostMapping(value = "/votar", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Realizar a votação")
+    @Operation(summary = "Registra o voto do associado para pauta da sessão de votação")
     public ResponseEntity<Void> save(@Valid @RequestBody VotoInputDTO inputDTO) {
         service.save(inputDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping(value = "/resultado/{idPauta}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Retorna o resultado da sessão de votação")
+    @Operation(summary = "Retorna o resultado da votação de acordo com a pauta indicada da sessão")
     public ResponseEntity<ResultadoVotacaoOutputDTO> consulta(@PathVariable("idPauta") Long idPauta) {
         return ResponseEntity.ok(service.consultResultadoVotacao(idPauta));
     }

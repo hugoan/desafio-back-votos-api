@@ -23,7 +23,7 @@ public class AssociadoController {
     private final AssociadoService service;
 
     @GetMapping(value = "listar", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Retorna relação de associados")
+    @Operation(summary = "Retorna relação dos associados")
     public ResponseEntity<List<AssociadoOutputDTO>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
