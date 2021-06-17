@@ -32,12 +32,3 @@ $ mvn package
 $ cd target
 $ java -jar desafio-back-votos-api.jar
 ```
-#### Swagger
-Produção Heroku:
-```
-https://api-desafio-back.herokuapp.com/swagger-ui.html
-```
-Desenvolvimento:
-```
-http://localhost:8080/swagger-ui.html
-```

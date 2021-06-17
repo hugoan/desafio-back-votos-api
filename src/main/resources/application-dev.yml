@@ -9,14 +9,14 @@ spring:
     locale: pt_BR
     locale-resolver: fixed
   datasource:
-    url: jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/dbth82u78hmf4b
-    username: eubhszzjkbfzlk
-    password: 2093753ff4d1c1f20286dbd22f1f65b9a378a55552b3647d0b86a8b18a38570d
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: postgres
   flyway:
     enabled: true
-    url: jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/dbth82u78hmf4b
-    username: eubhszzjkbfzlk
-    password: 2093753ff4d1c1f20286dbd22f1f65b9a378a55552b3647d0b86a8b18a38570d
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: postgres
     locations: classpath:db/migration
     schemas: desafio_back_votos_api
     table: flyway_schema_history
@@ -37,10 +37,6 @@ feign:
 logging:
   level:
     root: info
-    org.hibernate.SQL: debug
-    org.springframework.ws.client.MessageTracing.sent: trace
-    org.springframework.ws.client.MessageTracing.received: trace
-    br.com.poupex.consignacao.api.client.BaseClientesApiClient: debug
 ---
 management:
   endpoints:
