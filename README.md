@@ -32,3 +32,8 @@ $ mvn package
 $ cd target
 $ java -jar desafio-back-votos-api.jar
 ```
+
+### Swagger
+```sh
+https://desafio-back-votos-api.herokuapp.com/swagger-ui.html
+```
