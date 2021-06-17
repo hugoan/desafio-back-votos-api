@@ -1,4 +1,4 @@
-package br.com.cooperativa.desafiobackvotos.api.Utils;
+package br.com.cooperativa.desafiobackvotos.api.utils;
 
 import org.springframework.util.StringUtils;
 
